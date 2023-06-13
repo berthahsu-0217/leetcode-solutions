@@ -1,17 +1,6 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
         
-        """
-        [4,2,0,3,2,5]
-              x
-         xoooox
-         x  xox
-         xxoxxx
-         xxoxxx
-        
-        2+1+4+
-        water
-        """
         water = 0
         stack = []
         n = len(height)
