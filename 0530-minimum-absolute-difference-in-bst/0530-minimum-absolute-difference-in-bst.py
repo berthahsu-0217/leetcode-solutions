@@ -7,21 +7,19 @@
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
         
-        return self.solution1(root)
-        
-    def solution1(self, root):
-        
         def inorder(node):
-            if node is None: return
+            
+            if node is None: 
+                return
+            
             inorder(node.left)
-            sorted_tree.append(node.val)
+            if self.prev:
+                self.min_diff = min(self.min_diff, node.val-self.prev.val)
+            self.prev = node
             inorder(node.right)
         
-        sorted_tree = []
+        self.min_diff = float("inf")
+        self.prev = None
         inorder(root)
-        #print(sorted_tree)
-        ans = float("inf")
-        for i in range(1, len(sorted_tree)):
-            ans = min(ans, sorted_tree[i]-sorted_tree[i-1])
-        return ans
+        return self.min_diff
             
