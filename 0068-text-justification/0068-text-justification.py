@@ -43,9 +43,7 @@ class Solution:
         ans.append(s)
         
         return ans
-                
-        
-                    
-           # ["This   is   an","example of text","justification.  "]
-           # ["This    is    an","example  of text","justification.  "]
+
+        # ["This   is   an","example of text","justification.  "]
+        # ["This    is    an","example  of text","justification.  "]
             
