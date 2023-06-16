@@ -2,7 +2,10 @@ class Solution:
     def numOfWays(self, nums: List[int]) -> int:
         
         """
-        maintain the relative order of each tree
+        at each level, 
+        1. root is arr[0]
+        2. find lt (left tree) and rt (right tree)
+        3. maintain the relative order of each elements in each tree
         """
         def combi(n, k):
             if k < n-k:
@@ -17,8 +20,7 @@ class Solution:
         def dfs(arr):
             n = len(arr)
             if n < 3: return 1
-            lt = []
-            gt = []
+            lt, gt = [], []
             for x in arr:
                 if x < arr[0]:
                     lt.append(x)
