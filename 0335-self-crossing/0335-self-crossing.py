@@ -42,7 +42,7 @@ class Solution:
        |     |
        |_ _ _|   
 
-        case 3: distance[i-2] > distance[i-4] and distance[i-5]+distance[i-1] >= distance[i-3] and distance[i]+distance[i-4] >= distance[i-2]
+        case 3: distance[i-2] > distance[i-4] and distance[i-1] <= distance[i-3] and distance[i-5]+distance[i-1] >= distance[i-3] and distance[i]+distance[i-4] >= distance[i-2]
         _ _ _
        |     |
        | /_ _|_ _    
@@ -63,15 +63,15 @@ class Solution:
             
             #case 1: distance[i] >= distance[i-2] and distance[i-1] <= distance[i-3]
             if i >= 3 and d0 >= d2 and d1 <= d3:
-                print("case1")
+                #print("case1")
                 return True
             #case 2: distance[i-1] == distance[i-3] and distance[i]+distance[i-4] >= distance[i-2]   
             elif i >= 4 and d1 == d3 and d0+d4 >= d2:
-                print("case2")
+                #print("case2")
                 return True
             #distance[i-2] == distance[i-4] and distance[i-5]+distance[i-1] >= distance[i-3] and distance[i]+distance[i-4] >= distance[i-2]
             elif i >= 5 and d2 > d4 and d1 <= d3 and d1+d5 >= d3 and d0+d4 >= d2:
-                print("case3")
+                #print("case3")
                 return True
             
 
