@@ -15,12 +15,13 @@ class Solution:
         => find k elements in m sorted lists of length n
         """
         pairs = []
-        min_heap = []
-        
         m, n = len(nums1), len(nums2)
-        for i in range(m):
-            hq.heappush(min_heap, (nums1[i]+nums2[0], i, 0))
-            
+        
+        #O(m)
+        min_heap = [(nums1[i]+nums2[0], i, 0) for i in range(m)]
+        hq.heapify(min_heap)
+
+        #O(klogm)
         for t in range(min(k, m*n)):
             _, i, j = hq.heappop(min_heap)
             pairs.append([nums1[i], nums2[j]])
