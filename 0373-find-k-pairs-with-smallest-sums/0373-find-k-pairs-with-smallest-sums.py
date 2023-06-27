@@ -1,0 +1,32 @@
+import heapq as hq
+class Solution:
+    def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
+        
+        """
+        i
+        1 4 5 6 9
+        2 2 3 4 7
+        j
+        
+        i = 0 [[1,2],[1,2],[1,3],[1,4],[1,7]]
+        i = 1 [[4,2],[4,2],[4,3],[4,4],[4,7]]
+        i = 2 [[5,2],[5,2],...]
+        
+        => find k elements in m sorted lists of length n
+        """
+        pairs = []
+        min_heap = []
+        
+        m, n = len(nums1), len(nums2)
+        for i in range(m):
+            hq.heappush(min_heap, (nums1[i]+nums2[0], i, 0))
+            
+        for t in range(min(k, m*n)):
+            _, i, j = hq.heappop(min_heap)
+            pairs.append([nums1[i], nums2[j]])
+            if j+1 < n:
+                hq.heappush(min_heap, (nums1[i]+nums2[j+1], i, j+1))
+                
+        return pairs
+                
+        
