@@ -21,8 +21,8 @@ class Solution:
         ans = total_cost
         for i in range(1, n):
             gap = num_and_cost[i][0]-num_and_cost[i-1][0]
-            inc = prefix_cost[i-1] #additional costs for elements larger than nums[i]
-            dec = prefix_cost[n-1]-prefix_cost[i-1] #decreased costs for elements larger than nums[i]
+            inc = prefix_cost[i-1] #additional unit of costs for elements larger than nums[i]
+            dec = prefix_cost[n-1]-prefix_cost[i-1] #redundant unit of costs for elements larger than nums[i]
             total_cost += gap*(inc-dec)
             ans = min(ans, total_cost)
         
