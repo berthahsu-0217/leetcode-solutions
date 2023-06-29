@@ -14,7 +14,6 @@ class Solution:
                 s = 0
                 for k in range(n):
                     s += matrix[i][k]-(matrix[j-1][k] if j > 0 else 0)
-                    print(s, )
                     if s == target:
                         ans += 1
                     ans += prefix_sum.get(s-target,0)
