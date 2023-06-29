@@ -24,7 +24,6 @@ class Solution:
                 elif i+1 < n and code[i:i+2] == "</":
                     return True, i
                 elif i+1 < n and code[i] == "<":
-                    print("this", code[i:])
                     flag, idx = isClosed(i, n)
                     if not flag:
                         return False, -1
@@ -77,17 +76,12 @@ class Solution:
         def isClosed(i, n):
             flag, i, start_tag = isStartTag(i, n)
             if not flag:
-                print("start tag wrong")
                 return False, -1
-            print(code[i:])
             flag, i = isTagContent(i, n)
             if not flag:
-                print("tag content wrong")
                 return False, -1
-            print(code[i:])
             flag, i, end_tag = isEndTag(i, n)
             if (not flag) or (start_tag != end_tag):
-                print("end tag wrong")
                 return False, -1
             return True, i
         
