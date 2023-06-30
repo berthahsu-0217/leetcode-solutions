@@ -1,39 +1,36 @@
 class Solution:
+    def bfs(self, node, answer, graph):
+        seen = set([node])
+        todo = deque([node])
+        depts = defaultdict(int)
+        depts[node] = 0
+        parents = defaultdict(int)
+        parents[node] = -1
+        while todo:
+            cur = todo.popleft()
+            for neighbor in graph[cur]:
+                if neighbor not in seen:
+                    todo.append(neighbor)
+                    seen.add(neighbor)
+                    depts[neighbor] = depts[cur] + 1
+                    parents[neighbor] = cur
+                elif neighbor != parents[cur]:
+                    answer[0] = min(answer[0], depts[neighbor] + depts[cur] + 1)
+                
     def findShortestCycle(self, n: int, edges: List[List[int]]) -> int:
-        def dfs(src, tgt):
-            """Checks for path from src to tgt."""
-            if src in visited:
-                return
-            visited.add(src)
-            if src == tgt:
-                return True
-            return any(dfs(nei, tgt) for nei in graph[src])
+        graph = [ [] for _ in range(n) ]
+        for a, b in edges:
+            graph[a].append(b)
+            graph[b].append(a)
         
-        def bfs(src, tgt):
-            """Shortest path from src to tgt."""
-            seen = {src}
-            q = collections.deque([(src, 0)])
-            while q:
-                curr, dist = q.popleft()
-                if curr == tgt:
-                    return dist
-                for nei in graph[curr]:
-                    if nei not in seen:
-                        seen.add(nei)
-                        q.append((nei, dist + 1))
+        answer = [1001]
+        for node in range(n):
+            self.bfs(node, answer, graph)
         
-        graph = collections.defaultdict(list)
-        res = math.inf
-        for u, v in edges:
-            visited = set()
-            if u in graph and v in graph:
-                if dfs(u, v):
-                    res = min(res, bfs(u, v))
-            graph[u].append(v)
-            graph[v].append(u)
+        if answer[0] == 1001:
+            answer[0] = -1
         
-        # Add 1 for the edge that caused the cycle
-        return res + 1 if res < math.inf else -1
+        return answer[0]
 """
 import queue
 
