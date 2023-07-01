@@ -2,7 +2,7 @@ class Solution:
     def distributeCookies(self, cookies: List[int], k: int) -> int:
         
         """
-        k <= len(cookies) => each child receives at least one bag of cookies (pigeon hole rule)
+        k <= len(cookies) => each child receives at least one bag of cookies (the pigeonhole principle)
         early stopping: compare number of children without cookies and the remaining bags to distribute to
         """
         
