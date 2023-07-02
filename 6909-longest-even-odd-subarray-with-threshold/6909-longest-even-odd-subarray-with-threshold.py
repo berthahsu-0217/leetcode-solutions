@@ -13,11 +13,9 @@ class Solution:
             if x > threshold:
                 odd = even = 0
             elif x % 2 == 0: #even
-                even = odd+1
-                odd = 0
+                even, odd = odd+1, 0
             else: #odd
-                odd = even+1 if even > 0 else 0
-                even = 0
+                odd, even = even+1 if even > 0 else 0, 0
             #print(odd, even)
             max_len = max(max_len, even, odd)
         
