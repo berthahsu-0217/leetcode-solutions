@@ -23,7 +23,7 @@ class Solution:
                     return False #>2 diff
             chars[ord(s[i])-ord("a")] += 1
             
-        if i1 == i2 == None:
+        if i1 is None and i2 is None:
             for c in range(26):
                 if chars[c] >= 2:
                     return True
