@@ -1,19 +1,6 @@
 class Solution:
     def sumDistance(self, nums: List[int], s: str, d: int) -> int:
         
-        """
-        [-2,0,2]
-        "RLL"
-        d = 3
-        
-        [1,-3,-1]
-        
-        
-        [1, 0]
-        
-        [3 -2]
-        """
-        
         MOD = 10**9+7
         
         stack = []
