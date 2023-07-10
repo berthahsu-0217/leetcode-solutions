@@ -15,7 +15,7 @@ class Solution:
         
         while q:
             node, depth = q.popleft()
-            if not node.left and not node.right:
+            if node.left is None and node.right is None:
                 return depth
             if node.left:
                 q.append((node.left, depth+1))
