@@ -9,14 +9,10 @@ class Solution:
             h_prev = 0
             for c in s:
                 h_prev = (h_prev*x+ord(c)) % MOD
-            #print(s, h_prev)
             return h_prev
         
-        #print(hash("aa"), hash("aaa"))
-        
         forbidden = set([hash(s) for s in forbidden])
-        #print(forbidden)
-        #print(forbidden)
+
         n = len(word)
         min_r = [n]*n
 
