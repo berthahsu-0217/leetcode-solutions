@@ -1,6 +1,9 @@
 class Solution:
     def maxValue(self, events: List[List[int]], k: int) -> int:
         
+        return self.topDownDP(events, k)
+    
+    def topDownDP(self, events, k):
         """
         TC: n*(k+logn)
         1. sort => O(n*logn)
