@@ -1,6 +1,13 @@
 class Solution:
     def maxValue(self, events: List[List[int]], k: int) -> int:
         
+        """
+        TC: n*(k+logn)
+        1. sort => O(n*logn)
+        2. backtrack: n*k
+        3. binarySearch: n*logn 
+        """
+        
         @cache
         def binarySearch(last_end):
             l, r = 0, len(events)
