@@ -13,7 +13,7 @@ class Solution:
                     elif dp[j][0]+1 == dp[i][0]:
                         dp[i][1] += dp[j][1]
         
-        print(dp)
+        #print(dp)
         
         max_lis, ans = 0, 0
         for i in range(n):
