@@ -11,6 +11,7 @@ class Solution:
             h = 0
             for i in range(n-1):
                 h += math.ceil(dist[i]/speed)
+                if h > hour: return False
             h += dist[-1]/speed
             return h <= hour
             
